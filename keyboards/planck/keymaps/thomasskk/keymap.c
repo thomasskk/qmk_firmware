@@ -33,15 +33,6 @@ enum planck_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 
-#define AGRV 0x00E0 // à
-#define ACIR 0x00E2 // â
-#define EAIG 0x00E9 // é
-#define EGRV 0x00E8 // è
-#define ECIR 0x00EA // ê
-#define UGRV 0x00F9 // ù
-#define EURO 0x20AC // €
-
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
@@ -80,8 +71,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______,    KC_MNXT,    KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
-#define EAIG 0x00E9 //  
-#define EGRV 0x00E8 //  
 /* Raise
  * ,-----------------------------------------------------------------------------------.
  * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
@@ -95,8 +84,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT_planck_grid(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-    KC_DEL,  UC(AGRV),   UC(ECIR),   UC(EAIG),   UC(EGRV),   KC_F5,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
-    _______, UC(ACIR),   UC(EURO),   KC_F9,   KC_F10,  KC_F11,  KC_F12,  UC(UGRV), KC_NUBS, KC_PGUP, KC_PGDN, _______,
+    KC_DEL,  RALT(KC_A),   RALT(KC_3),   RALT(KC_W),   RALT(KC_E),   KC_F5,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
+    _______, RALT(KC_Q),   RALT(KC_5),   KC_F9,   KC_F10,  KC_F11,  KC_F12,  RALT(KC_U), KC_NUBS, KC_PGUP, KC_PGDN, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
@@ -238,11 +227,6 @@ bool dip_switch_update_user(uint8_t index, bool active) {
     }
     return true;
 }
-
-void matrix_init_user(void) {
-    set_unicode_input_mode(UC_LNX);
-};
-
 
 void matrix_scan_user(void) {
 #ifdef AUDIO_ENABLE
