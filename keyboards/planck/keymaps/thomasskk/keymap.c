@@ -144,8 +144,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_KITTY] = LAYOUT_planck_grid(
     _______,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______,
-    _______,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   LCTL(LSFT(KC_LEFT)) , LCTL(LSFT(KC_T)), LCTL(LSFT(KC_Q)),  LCTL(LSFT(KC_RGHT)),  _______, _______,
-    _______,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    _______, _______, _______, _______,
+    _______,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    LCTL(LSFT(KC_LEFT)), LCTL(LSFT(KC_T)),_______,  LCTL(LSFT(KC_RGHT)),  _______, _______,
+    _______,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    LCTL(LSFT(KC_Q)), _______, _______, _______,
     _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ 
 ),
 
