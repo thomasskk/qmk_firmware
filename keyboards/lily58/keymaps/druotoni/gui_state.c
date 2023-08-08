@@ -13,16 +13,28 @@ uint32_t global_booting_timer   = 0;
 
 // timers test for states
 #ifdef WITH_BOOT
-static bool IsBooting(void) { return (timer_elapsed32(global_booting_timer) < BOOTING_TIME_TRESHOLD); }
+static bool IsBooting(void) {
+    return (timer_elapsed32(global_booting_timer) < BOOTING_TIME_TRESHOLD);
+}
 #else
-static bool IsBooting(void) { return false; }
+static bool IsBooting(void) {
+    return false;
+}
 #endif
 
 // state test
-static bool IsWakingUp(void) { return (timer_elapsed32(global_waking_up_timer) < WAKING_UP_TIME_TRESHOLD); }
-static bool IsIdle(void) { return (timer_elapsed32(global_sleep_timer) > IDLE_TIME_TRESHOLD && timer_elapsed32(global_sleep_timer) < HALTING_TIME_TRESHOLD); }
-static bool IsSleep(void) { return (timer_elapsed32(global_sleep_timer) >= SLEEP_TIME_TRESHOLD); }
-static bool IsHalting(void) { return (timer_elapsed32(global_sleep_timer) >= HALTING_TIME_TRESHOLD && timer_elapsed32(global_sleep_timer) < SLEEP_TIME_TRESHOLD); }
+static bool IsWakingUp(void) {
+    return (timer_elapsed32(global_waking_up_timer) < WAKING_UP_TIME_TRESHOLD);
+}
+static bool IsIdle(void) {
+    return (timer_elapsed32(global_sleep_timer) > IDLE_TIME_TRESHOLD && timer_elapsed32(global_sleep_timer) < HALTING_TIME_TRESHOLD);
+}
+static bool IsSleep(void) {
+    return (timer_elapsed32(global_sleep_timer) >= SLEEP_TIME_TRESHOLD);
+}
+static bool IsHalting(void) {
+    return (timer_elapsed32(global_sleep_timer) >= HALTING_TIME_TRESHOLD && timer_elapsed32(global_sleep_timer) < SLEEP_TIME_TRESHOLD);
+}
 
 gui_state_t get_gui_state(void) {
     // get gui states by testing timers
